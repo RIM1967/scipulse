@@ -1,0 +1,57 @@
+{
+  "expectations": [
+    {
+      "id": "a6cb152f-cf56-43ef-8ac5-28fa437fb461",
+      "kwargs": {
+        "column": "openalex_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "30a71871-8f12-40f5-b71c-0e0dad19a3fb",
+      "kwargs": {
+        "column": "openalex_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "12de611f-1f9e-42aa-ba00-e42a081a21f5",
+      "kwargs": {
+        "column": "doi"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "d8502559-0b50-4fd2-9bf9-eb1c4b27760f",
+      "kwargs": {
+        "column": "doi",
+        "regex": "^10\\.\\d{4,9}/\\S+$"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_match_regex"
+    },
+    {
+      "id": "4864f7c4-cd81-40d5-b822-b3e6e6421238",
+      "kwargs": {
+        "column": "cited_by_count",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "739da8f9-8761-41e8-9b51-23fea5d166f1",
+  "meta": {
+    "great_expectations_version": "1.23.2"
+  },
+  "name": "citations_silver",
+  "notes": null
+}

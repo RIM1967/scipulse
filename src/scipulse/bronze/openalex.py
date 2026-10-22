@@ -32,7 +32,10 @@ from scipulse.storage import DataLake, partition_key
 API = "https://api.openalex.org/works"
 FIELDS = ("id,doi,title,publication_year,type,cited_by_count,counts_by_year,"
           "fwci,primary_topic,referenced_works")
-DOIS_PER_REQUEST = 50
+# Maximum accepté par OpenAlex dans un filtre OR. Chaque requête coûte
+# 0,0001 $ de quota : budget gratuit 0,10 $/jour sans clé (~1 000 requêtes,
+# partagé par IP), 1 $/jour avec une clé gratuite (~10 000 requêtes).
+DOIS_PER_REQUEST = 100
 
 
 def batches(items: list[str], size: int) -> Iterator[list[str]]:
@@ -46,13 +49,22 @@ def fetch_batch(session: requests.Session, dois: list[str], settings: Settings
     params: dict[str, Any] = {
         "filter": "doi:" + "|".join(f"https://doi.org/{d}" for d in dois),
         "select": FIELDS,
-        "per-page": 200,
+        # Un même DOI peut renvoyer plusieurs works (doublons OpenAlex) : marge
+        "per-page": DOIS_PER_REQUEST * 2,
     }
     if settings.openalex_mailto:
         params["mailto"] = settings.openalex_mailto
     if settings.openalex_api_key:
         params["api_key"] = settings.openalex_api_key
     response = session.get(API, params=params, timeout=60)
+    if response.status_code == 400:
+        # Un DOI malformé fait rejeter tout le lot : on coupe en deux pour
+        # l'isoler, et on n'abandonne que lui (O(log n) requêtes en plus)
+        if len(dois) == 1:
+            return []
+        middle = len(dois) // 2
+        return (fetch_batch(session, dois[:middle], settings)
+                + fetch_batch(session, dois[middle:], settings))
     response.raise_for_status()
     return response.json().get("results", [])
 

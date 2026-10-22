@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "df650424-c3fe-4626-ae86-3dedb6e4d8e3",
+      "name": "hn_silver"
+    },
+    "batch_definition": {
+      "id": "a93a89c9-5773-431b-a3e1-a7ad933c3ee8",
+      "name": "hn_silver_batch"
+    },
+    "datasource": {
+      "id": "42ed8092-0daa-427e-8944-32448e5e36f9",
+      "name": "scipulse_silver"
+    }
+  },
+  "id": "f45058a0-5d32-4516-b8c0-128cea6724da",
+  "name": "hn_silver_validation",
+  "suite": {
+    "id": "be3af12b-afe7-49af-9e26-1749cc38a5e5",
+    "name": "hn_silver"
+  }
+}
