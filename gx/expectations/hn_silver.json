@@ -1,0 +1,100 @@
+{
+  "expectations": [
+    {
+      "id": "9baec58b-1799-40d6-962d-a3501b9302c7",
+      "kwargs": {
+        "min_value": 1
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_row_count_to_be_between"
+    },
+    {
+      "id": "23d0f13b-38b2-48e6-84a2-4042e43ce2d4",
+      "kwargs": {
+        "column": "hn_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "b75ce469-156f-411d-b65a-3223661df027",
+      "kwargs": {
+        "column": "hn_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "803a8d6d-a1a1-4888-b9fe-5a1506b2dbe4",
+      "kwargs": {
+        "column": "title"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "d33e51e2-fecc-46a5-b9ee-e707b14291b0",
+      "kwargs": {
+        "column": "score",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "cc6b15ab-fa9f-448f-94f6-9c9c4256f869",
+      "kwargs": {
+        "column": "num_comments",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "bbcc58a3-a81d-462a-91c7-91b331f325eb",
+      "kwargs": {
+        "column": "source",
+        "value_set": [
+          "firebase",
+          "algolia"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "b04f61a3-b40b-40f8-b40e-ad62b33cec2a",
+      "kwargs": {
+        "column": "created_year",
+        "max_value": 2026.0,
+        "min_value": 2006.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "1cc891d4-301a-469c-9569-dffed5ceca58",
+      "kwargs": {
+        "column": "arxiv_id",
+        "regex": "^(?:\\d{4}\\.\\d{4,5}|[a-z][a-z\\-]*(?:\\.[A-Za-z]{2})?/\\d{7})$"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_match_regex"
+    }
+  ],
+  "id": "be3af12b-afe7-49af-9e26-1749cc38a5e5",
+  "meta": {
+    "great_expectations_version": "1.23.2"
+  },
+  "name": "hn_silver",
+  "notes": null
+}

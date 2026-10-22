@@ -1,0 +1,110 @@
+{
+  "expectations": [
+    {
+      "id": "40ed088d-04ee-47a2-9c53-dc7719ee78df",
+      "kwargs": {
+        "min_value": 1000
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_row_count_to_be_between"
+    },
+    {
+      "id": "f43e0874-d153-487c-954f-f5540e72f141",
+      "kwargs": {
+        "column": "arxiv_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "3858051c-4a94-4ae6-b038-ed633f57ae80",
+      "kwargs": {
+        "column": "arxiv_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "6ce98dc3-f393-46cd-a66d-d2ad85178298",
+      "kwargs": {
+        "column": "arxiv_id",
+        "regex": "^(?:\\d{4}\\.\\d{4,5}|[a-z][a-z\\-]*(?:\\.[A-Za-z]{2})?/\\d{7})$"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_match_regex"
+    },
+    {
+      "id": "a84e1f91-457f-4e76-9f86-64c669a2c67b",
+      "kwargs": {
+        "column": "title"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "ecc21b1d-f9ca-4bca-9aca-ac9137a175bb",
+      "kwargs": {
+        "column": "abstract",
+        "max_value": 10000,
+        "min_value": 50,
+        "mostly": 0.99
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_value_lengths_to_be_between"
+    },
+    {
+      "id": "d08f13f6-5a75-4a02-ab0d-bb8913836e69",
+      "kwargs": {
+        "column": "primary_category",
+        "regex": "^[a-z\\-]+(\\.[A-Za-z\\-]+)?$"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_match_regex"
+    },
+    {
+      "id": "4925f0fa-0459-409e-bbf2-e0514c656445",
+      "kwargs": {
+        "column": "published_year",
+        "max_value": 2026.0,
+        "min_value": 1991.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "5727a213-4a55-4c9e-9451-02b62ea883db",
+      "kwargs": {
+        "column": "n_authors",
+        "max_value": 5000.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "c6730b31-baba-4a52-a557-68bd855a6188",
+      "kwargs": {
+        "column": "arxiv_doi",
+        "regex": "^10\\.48550/arxiv\\."
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_match_regex"
+    }
+  ],
+  "id": "7d0db63c-9238-49ff-8716-82b26d3c070a",
+  "meta": {
+    "great_expectations_version": "1.23.2"
+  },
+  "name": "arxiv_silver",
+  "notes": null
+}

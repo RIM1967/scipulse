@@ -1,0 +1,28 @@
+# Secrets
+.env
+
+# Données (plusieurs Go — jamais versionnées ; régénérées par les DAGs)
+data/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Airflow
+airflow/logs/*
+!airflow/logs/.gitkeep
+
+# Great Expectations (artefacts générés ; la config et les suites sont versionnées)
+gx/uncommitted/
+
+# Divers
+__MACOSX/
+.DS_Store
+Thumbs.db
+*.zip

@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "15bfaa47-3285-460b-8d30-d91a3a0f64f8",
+      "name": "citations_silver"
+    },
+    "batch_definition": {
+      "id": "4a8febc3-bf71-4631-8867-3ada4e707d17",
+      "name": "citations_silver_batch"
+    },
+    "datasource": {
+      "id": "42ed8092-0daa-427e-8944-32448e5e36f9",
+      "name": "scipulse_silver"
+    }
+  },
+  "id": "8b4294bc-16c0-4658-9c87-a11e6da92857",
+  "name": "citations_silver_validation",
+  "suite": {
+    "id": "739da8f9-8761-41e8-9b51-23fea5d166f1",
+    "name": "citations_silver"
+  }
+}

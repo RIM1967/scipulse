@@ -1,0 +1,5 @@
+# Notebook d'analyse qualité (exécution sur l'hôte, stack démarrée)
+# Installation : python -m pip install -r requirements-notebook.txt
+-r requirements-dev.txt
+matplotlib>=3.8
+jupyterlab>=4.0

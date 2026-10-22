@@ -1,0 +1,44 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "analyzer": {
+        "scientific_english": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["lowercase", "english_possessive", "english_stop", "english_stemmer"]
+        }
+      },
+      "filter": {
+        "english_possessive": {"type": "stemmer", "language": "possessive_english"},
+        "english_stop": {"type": "stop", "stopwords": "_english_"},
+        "english_stemmer": {"type": "stemmer", "language": "light_english"}
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "arxiv_id":         {"type": "keyword"},
+      "title":            {"type": "text", "analyzer": "scientific_english",
+                           "fields": {"keyword": {"type": "keyword", "ignore_above": 512}}},
+      "abstract":         {"type": "text", "analyzer": "scientific_english"},
+      "authors":          {"type": "text", "fields": {"keyword": {"type": "keyword"}}},
+      "n_authors":        {"type": "integer"},
+      "submitter":        {"type": "keyword"},
+      "categories":       {"type": "keyword"},
+      "primary_category": {"type": "keyword"},
+      "primary_domain":   {"type": "keyword"},
+      "category_name":    {"type": "keyword"},
+      "published_at":     {"type": "date"},
+      "published_year":   {"type": "integer"},
+      "updated_at":       {"type": "date"},
+      "n_versions":       {"type": "integer"},
+      "journal_ref":      {"type": "text"},
+      "journal_doi":      {"type": "keyword"},
+      "arxiv_doi":        {"type": "keyword"},
+      "license":          {"type": "keyword"}
+    }
+  }
+}

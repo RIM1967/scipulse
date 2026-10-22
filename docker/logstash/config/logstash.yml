@@ -1,0 +1,5 @@
+http.host: "0.0.0.0"
+path.config: /usr/share/logstash/pipeline/*.conf
+log.level: info
+# Pas de monitoring X-Pack (cluster sans sécurité, licence basic)
+xpack.monitoring.enabled: false
