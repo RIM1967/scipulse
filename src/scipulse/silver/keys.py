@@ -35,14 +35,14 @@ def normalize_arxiv_id(raw: str | None) -> str | None:
 
 def arxiv_id_from_url(url: str | None) -> str | None:
     """Extrait l'identifiant ArXiv d'une URL (stories Hacker News)."""
-    if not url:
+    if not isinstance(url, str) or not url:   # None, ou NaN venant de pandas
         return None
     match = _URL_RE.search(url)
     return normalize_arxiv_id(match.group(1)) if match else None
 
 
 def normalize_doi(raw: str | None) -> str | None:
-    """DOI canonique : minuscules, sans préfixe https://doi.org/ (exigence du brief).
+    """DOI canonique : minuscules, sans préfixe https://doi.org/.
 
     Anomalies réelles du dump ArXiv (cf. notebook qualité) :
       - plusieurs DOI dans le même champ, séparés par des espaces → on garde le premier ;
