@@ -34,6 +34,12 @@ x-airflow-common: &airflow-common
     SPARK_DRIVER_HOST: airflow-scheduler
     SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY}
     OPENALEX_MAILTO: ${OPENALEX_MAILTO:-}
+    OPENALEX_API_KEY: ${OPENALEX_API_KEY:-}
+    ALERT_WEBHOOK_URL: ${ALERT_WEBHOOK_URL:-}
+    # Échantillon ArXiv (surchargeable pour un jeu de test)
+    ARXIV_SAMPLE_SIZE: ${ARXIV_SAMPLE_SIZE:-100000}
+    ARXIV_MIN_YEAR: ${ARXIV_MIN_YEAR:-2015}
+    ARXIV_SEED: ${ARXIV_SEED:-42}
     METRICS_DIR: /opt/airflow/data/metrics
     DATA_DIR: /opt/airflow/data
   volumes:
@@ -43,6 +49,9 @@ x-airflow-common: &airflow-common
     - ./src:/opt/airflow/src
     - ./scripts:/opt/airflow/scripts
     - ./data:/opt/airflow/data
+    - ./gx:/opt/airflow/gx                       # contexte Great Expectations
+    - ./elasticsearch:/opt/airflow/elasticsearch # mappings versionnés
+    - ./kibana:/opt/airflow/kibana               # dashboards (.ndjson)
   networks: [scipulse]
 
 services:
