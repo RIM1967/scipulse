@@ -1,0 +1,18 @@
+[project]
+name = "scipulse"
+version = "0.1.0"
+description = "Plateforme de veille scientifique : ArXiv × Hacker News × OpenAlex (Medallion, Elastic Stack, Spark)"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "scripts"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["airflow/logs", "data", "notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "BLE"]

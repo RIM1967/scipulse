@@ -1,0 +1,6 @@
+# Dépendances Python des executors Spark.
+# Versions alignées sur les contraintes Airflow 2.10.5 / Python 3.11 (driver).
+pyspark==3.5.4
+numpy==1.26.4
+pandas==2.1.4
+pyarrow==16.1.0

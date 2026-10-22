@@ -1,0 +1,5 @@
+# Scripts exécutés dans des conteneurs Linux : toujours en LF
+*.sh   text eol=lf
+*.conf text eol=lf
+*.yml  text eol=lf
+Makefile text eol=lf
